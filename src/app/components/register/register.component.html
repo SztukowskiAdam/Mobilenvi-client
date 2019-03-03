@@ -2,10 +2,10 @@
   <div class="alert alert-danger" [hidden]="!error">
     {{error}}
   </div>
-  <input type="text" name="name" required [(ngModel)]="form.name">
-  <input type="email" name="email" required [(ngModel)]="form.email">
-  <input type="password" name="password" required [(ngModel)]="form.password">
-  <input type="password" name="password_confirmation" required [(ngModel)]="form.password_confirmation">
+  <input type="text" name="name" required [(ngModel)]="form.name" placeholder="Imię">
+  <input type="email" name="email" required [(ngModel)]="form.email" placeholder="E-mail">
+  <input type="password" name="password" required [(ngModel)]="form.password" placeholder="Hasło">
+  <input type="password" name="password_confirmation" required [(ngModel)]="form.password_confirmation" placeholder="Powtórz hasło">
 
   <input type="submit" value="Zaloguj" [disabled]="!registerForm.valid">
 
