@@ -1,0 +1,10 @@
+<form #loginForm=ngForm (ngSubmit)="onSubmit()">
+  <div class="alert alert-danger" [hidden]="!error">
+    {{error}}
+  </div>
+  <input type="email" name="email" required [(ngModel)]="form.email">
+  <input type="password" name="password" required [(ngModel)]="form.password">
+
+  <input type="submit" value="Zaloguj" [disabled]="!loginForm.valid">
+
+</form>
