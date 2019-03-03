@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
+import {PostifyService} from '../../Services/postify.service';
 
 @Component({
   selector: 'app-register',
@@ -18,11 +17,11 @@ export class RegisterComponent implements OnInit {
 
   public error = null;
 
-  constructor(private http: HttpClient) {
+  constructor(private postify: PostifyService) {
   }
 
   onSubmit() {
-    return this.http.post(environment.APIEndpoint + 'register', this.form).subscribe(
+    return this.postify.register(this.form).subscribe(
       data => console.log(data),
       error => this.handleError(error)
     );

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
+import {PostifyService} from '../../Services/postify.service';
 
 @Component({
   selector: 'app-login',
@@ -16,10 +15,10 @@ export class LoginComponent implements OnInit {
 
   public error = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private postify: PostifyService) { }
 
   onSubmit() {
-    return this.http.post(environment.APIEndpoint + 'login', this.form).subscribe(
+    return this.postify.login(this.form).subscribe(
       data => console.log(data),
       error => this.handleError(error)
     );

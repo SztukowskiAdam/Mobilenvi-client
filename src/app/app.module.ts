@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
 import {HttpClientModule} from '@angular/common/http';
+import {PostifyService} from './Services/postify.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [PostifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
