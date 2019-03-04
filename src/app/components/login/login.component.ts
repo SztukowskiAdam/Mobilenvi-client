@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PostifyService} from '../../Services/postify.service';
+import {TokenService} from '../../Services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -15,17 +16,24 @@ export class LoginComponent implements OnInit {
 
   public error = null;
 
-  constructor(private postify: PostifyService) { }
+  constructor(
+    private postify: PostifyService,
+    private token: TokenService
+  ) { }
 
   onSubmit() {
     return this.postify.login(this.form).subscribe(
-      data => console.log(data),
+      data => this.handleResponse(data),
       error => this.handleError(error)
     );
   }
 
   handleError(error) {
     this.error = error.error.error;
+  }
+
+  handleResponse(data) {
+    this.token.handle(data.token);
   }
 
   ngOnInit() {

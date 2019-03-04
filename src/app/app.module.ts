@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
 import {HttpClientModule} from '@angular/common/http';
 import {PostifyService} from './Services/postify.service';
+import {TokenService} from './Services/token.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import {PostifyService} from './Services/postify.service';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [PostifyService],
+  providers: [PostifyService, TokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
