@@ -1,16 +1,10 @@
-.mobil-envy, .world {
+.mobil-envy, .world, .beach {
   position: relative;
   opacity: 1;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
-
-.section {
-  text-align: center;
-  padding: 50px 80px;
-  min-height: 400px;
 }
 
 .section-light {
@@ -38,15 +32,18 @@
   margin-top: 30%;
 }
 
+.text-how {
+  margin-top: 10%;
+}
+
 @media(max-width: 992px) {
-  .mobil-envy, .world {
+  .mobil-envy, .world, .beach {
     background-attachment: scroll;
   }
   .text {
     margin-top: 10%;
   }
 }
-
 
 .mobil-envy {
   background-image: url('~src/assets/images/background/stars.gif');
@@ -60,7 +57,17 @@
   min-height: 600px;
 }
 
+.beach {
+  background-image: url('~src/assets/images/background/beach.jpg');
+  /*background-image: linear-gradient(to bottom, rgba(139,178,255,0.3) 100%,rgba(139,178,255,0.3) 50%), url('~src/assets/images/background/beach.jpg');*/
+  min-height: 600px;
+}
+
 
 .vertical {
   margin-top:180px;
+}
+
+ul {
+  list-style-type: none;
 }
