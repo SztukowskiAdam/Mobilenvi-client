@@ -12,5 +12,6 @@
 }
 
 body {
-  background-image: url("~src/assets/images/night.jpg");
+  background-color: #282E34;
+  color: #DDD;
 }

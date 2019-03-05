@@ -1,0 +1,66 @@
+.mobil-envy, .world {
+  position: relative;
+  opacity: 1;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.section {
+  text-align: center;
+  padding: 50px 80px;
+  min-height: 400px;
+}
+
+.section-light {
+  background-color: #f4f4f4;
+  color: #666;
+}
+
+.section-dark {
+  background-color: #282E34;
+  color: #DDD;
+}
+
+.border-light {
+  border: solid 2px #f4f4f4;
+  border-radius: 10px;
+  height: 300px;
+  margin-top: 150px;
+}
+
+.text {
+  margin-top: 40%;
+}
+
+.text-large {
+  margin-top: 30%;
+}
+
+@media(max-width: 992px) {
+  .mobil-envy, .world {
+    background-attachment: scroll;
+  }
+  .text {
+    margin-top: 10%;
+  }
+}
+
+
+.mobil-envy {
+  background-image: url('~src/assets/images/background/stars.jpg');
+  /*background-image: linear-gradient(to bottom, rgba(139,178,255,0.3) 100%,rgba(139,178,255,0.3) 50%), url('~src/assets/images/background/img2.jpg');*/
+  min-height: 600px;
+}
+
+.world {
+  background-image: url('~src/assets/images/background/world.jpg');
+  /*background-image: linear-gradient(to bottom, rgba(139,178,255,0.3) 100%,rgba(139,178,255,0.3) 50%), url('~src/assets/images/background/img2.jpg');*/
+  min-height: 600px;
+}
+
+
+.vertical {
+  margin-top:180px;
+}

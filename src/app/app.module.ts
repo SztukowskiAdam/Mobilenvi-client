@@ -12,6 +12,7 @@ import {PostifyService} from './Services/postify.service';
 import {TokenService} from './Services/token.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {AuthService} from './Services/auth.service';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {AuthService} from './Services/auth.service';
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
