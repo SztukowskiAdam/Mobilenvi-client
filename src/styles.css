@@ -10,3 +10,7 @@
 .ng-valid:not(form) {
   border-left: solid 5px green;
 }
+
+body {
+  background-image: url("~src/assets/images/night.jpg");
+}
