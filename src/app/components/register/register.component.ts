@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PostifyService} from '../../Services/postify.service';
+import {Router} from '@angular/router';
+import {TokenService} from '../../Services/token.service';
 
 @Component({
   selector: 'app-register',
@@ -17,12 +19,16 @@ export class RegisterComponent implements OnInit {
 
   public error = null;
 
-  constructor(private postify: PostifyService) {
+  constructor(
+    private postify: PostifyService,
+    private router: Router,
+    private token: TokenService
+              ) {
   }
 
   onSubmit() {
     return this.postify.register(this.form).subscribe(
-      data => console.log(data),
+      data => this.handleResponse(data),
       error => this.handleError(error)
     );
   }
@@ -31,7 +37,14 @@ export class RegisterComponent implements OnInit {
     this.error = error.error.error;
   }
 
-  ngOnInit() {
+  handleResponse(data) {
+    this.token.handle(data.token);
+    this.router.navigateByUrl('/dashboard');
+  }
 
+  ngOnInit(): void {
+    if (this.token.loggedIn()) {
+      this.router.navigateByUrl('/dashboard');
+    }
   }
 }

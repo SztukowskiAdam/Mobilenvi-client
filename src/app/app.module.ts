@@ -10,13 +10,16 @@ import { RegisterComponent } from './components/register/register.component';
 import {HttpClientModule} from '@angular/common/http';
 import {PostifyService} from './Services/postify.service';
 import {TokenService} from './Services/token.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {AuthService} from './Services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import {TokenService} from './Services/token.service';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [PostifyService, TokenService],
+  providers: [PostifyService, TokenService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

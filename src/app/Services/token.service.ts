@@ -29,8 +29,6 @@ export class TokenService {
 
     if (token) {
       const payload = this.payload(token);
-      console.log(payload);
-
       return payload.iss === (environment.APIEndpoint + 'login') ||  payload.iss === (environment.APIEndpoint + 'register');
     }
     return false;
