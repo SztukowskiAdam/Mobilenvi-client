@@ -1,3 +1,25 @@
-<p>
-  dashboard works!
-</p>
+<div class="container-fluid background vh-100"
+     [ngStyle]="{'background-image':
+     weather.temperature > 24 && weather.id ?
+     'url(../../../assets/images/weather/summer.jpg)' :
+     (weather.temperature > 15 && weather.id?
+     'url(../../../assets/images/weather/spring.jpg)' :
+     (weather.temperature > 5 && weather.id?
+     'url(../../../assets/images/weather/autumn.jpg)' :
+     ( weather.id ?
+     'url(../../../assets/images/weather/winter.jpg)' :
+     'none'
+     )))}">
+  <div class="row">
+    <div class="col-lg-5 col-md-6 col-sm-10 my-5 border-light py-3 text-right mx-2">
+      <div class="info text-light" *ngIf="!weather.id">
+        <h1>Witaj! Niestety nie mogliśmy odczytać Twojej lokalizacji. Mimo to możesz w pełni korzystać ze wszystkich usług.</h1>
+      </div>
+
+      <div class="info text-light" *ngIf="weather.id">
+        <h2>Temperatura: <br> <b>{{weather.temperature}} &#8451;</b><br><br>
+          Aktualizacja: <br> <b>{{weather.created_at}}.</b></h2>
+      </div>
+    </div>
+  </div>
+</div>
