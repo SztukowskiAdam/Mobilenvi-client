@@ -16,4 +16,8 @@ export class PostifyService {
   login(data) {
     return this.http.post(environment.APIEndpoint + 'login', data);
   }
+
+  userWeather(x, y) {
+    return this.http.post(environment.APIEndpoint + 'user/weather', x);
+  }
 }
