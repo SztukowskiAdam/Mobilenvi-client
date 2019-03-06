@@ -3,6 +3,7 @@ import {PostifyService} from '../../Services/postify.service';
 import {TokenService} from '../../Services/token.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../../Services/auth.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -22,10 +23,12 @@ export class LoginComponent implements OnInit {
     private postify: PostifyService,
     private token: TokenService,
     private router: Router,
-    private auth: AuthService
+    private auth: AuthService,
+    private spinner: NgxSpinnerService
   ) { }
 
   onSubmit() {
+    this.spinner.show();
     return this.postify.login(this.form).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
@@ -34,6 +37,7 @@ export class LoginComponent implements OnInit {
 
   handleError(error) {
     this.error = error.error.error;
+    this.spinner.hide();
   }
 
   handleResponse(data) {

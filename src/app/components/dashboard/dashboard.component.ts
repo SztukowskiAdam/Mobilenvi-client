@@ -3,6 +3,7 @@ import {TokenService} from '../../Services/token.service';
 import {Router} from '@angular/router';
 import {PostifyService} from '../../Services/postify.service';
 import {HttpClient} from '@angular/common/http';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,7 +26,8 @@ export class DashboardComponent implements OnInit {
     private token: TokenService,
     private route: Router,
     private postify: PostifyService,
-    private http: HttpClient
+    private http: HttpClient,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -47,10 +49,16 @@ export class DashboardComponent implements OnInit {
       x: position.coords.latitude,
       y: position.coords.longitude
     };
-
+    this.spinner.show();
     return this.postify.weather(this.dataa).subscribe(
-      data => this.weather = data.body.data,
-      error => console.log(error)
+      data => {
+        this.weather = data.body.data;
+        this.spinner.hide();
+        },
+      error => {
+        console.log(error);
+        this.spinner.hide();
+      }
     );
   }
 }

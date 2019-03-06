@@ -13,6 +13,7 @@ import {TokenService} from './Services/token.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {AuthService} from './Services/auth.service';
 import { HomeComponent } from './components/home/home.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HomeComponent } from './components/home/home.component';
     RouterModule,
     FormsModule,
     HttpClientModule,
+    NgxSpinnerModule
   ],
   providers: [PostifyService, TokenService, AuthService],
   bootstrap: [AppComponent]

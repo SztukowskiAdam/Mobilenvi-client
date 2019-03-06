@@ -1,3 +1,11 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#b0cfd9"
+  type="ball-atom">
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
 <div class="container-fluid background vh-100"
      [ngStyle]="{'background-image':
      weather.temperature > 24 && weather.id ?
@@ -10,15 +18,11 @@
      'url(../../../assets/images/weather/winter.jpg)' :
      'none'
      )))}">
-  <div class="row">
+  <div class="row" *ngIf="weather.id">
     <div class="col-lg-5 col-md-6 col-sm-10 my-5 border-light py-3 text-right mx-2">
-      <div class="info text-light" *ngIf="!weather.id">
-        <h1>Witaj! Niestety nie mogliśmy odczytać Twojej lokalizacji. Mimo to możesz w pełni korzystać ze wszystkich usług.</h1>
-      </div>
-
-      <div class="info text-light" *ngIf="weather.id">
+      <div class="info text-light">
         <h2>Temperatura: <br> <b>{{weather.temperature}} &#8451;</b><br><br>
-          Aktualizacja: <br> <b>{{weather.created_at}}.</b></h2>
+          Aktualizacja: <br> <b>{{weather.created_at}}</b></h2>
       </div>
     </div>
   </div>
