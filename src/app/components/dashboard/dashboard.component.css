@@ -3,3 +3,12 @@
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.6);
 }
+
+.background {
+  position: relative;
+  opacity: 1;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

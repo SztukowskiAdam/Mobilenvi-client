@@ -1,0 +1,15 @@
+.background {
+  background-image: url("~src/assets/images/background/sunset.jpg");
+  position: relative;
+  opacity: 1;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.border-light {
+  border: solid 1px #f4f4f4;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+}

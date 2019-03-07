@@ -6,7 +6,7 @@
   <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
 
-<div class="container-fluid background vh-100"
+<div class="container-fluid background min-vh-100"
      [ngStyle]="{'background-image':
      weather.temperature > 24 && weather.id ?
      'url(../../../assets/images/weather/summer.jpg)' :
@@ -16,7 +16,7 @@
      'url(../../../assets/images/weather/autumn.jpg)' :
      ( weather.id ?
      'url(../../../assets/images/weather/winter.jpg)' :
-     'none'
+     'url(../../../assets/images/weather/basic.jpg)'
      )))}">
   <div class="row" *ngIf="weather.id">
     <div class="col-lg-5 col-md-6 col-sm-10 my-5 border-light py-3 text-right mx-2">

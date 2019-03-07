@@ -6,15 +6,32 @@
   <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
 
-<form #registerForm=ngForm (ngSubmit)="onSubmit()">
-  <div class="alert alert-danger" [hidden]="!error">
-    {{error}}
+<div class="container-fluid p-0 m-0 background min-vh-100">
+  <div class="row p-0 m-0">
+    <div class="col-lg-4 offset-lg-4 col-md-6 col-sm-10 offset-sm-1 offset-md-3 my-5 py-3 border-light">
+      <div class="alert alert-danger" [hidden]="!error">
+        {{error}}
+      </div>
+      <form #registerForm=ngForm (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Imię</label>
+          <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp" [(ngModel)]="form.name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Adres Email</label>
+          <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" [(ngModel)]="form.email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Hasło</label>
+          <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="form.password">
+        </div>
+        <div class="form-group">
+          <label for="password_confirmation">Powtórz hasło</label>
+          <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required [(ngModel)]="form.password_confirmation">
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Utwórz konto</button>
+      </form>
+    </div>
   </div>
-  <input type="text" name="name" required [(ngModel)]="form.name" placeholder="Imię">
-  <input type="email" name="email" required [(ngModel)]="form.email" placeholder="E-mail">
-  <input type="password" name="password" required [(ngModel)]="form.password" placeholder="Hasło">
-  <input type="password" name="password_confirmation" required [(ngModel)]="form.password_confirmation" placeholder="Powtórz hasło">
-
-  <input type="submit" value="Zaloguj" [disabled]="!registerForm.valid">
-
-</form>
+</div>

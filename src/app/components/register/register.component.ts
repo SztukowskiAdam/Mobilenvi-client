@@ -3,6 +3,7 @@ import {PostifyService} from '../../Services/postify.service';
 import {Router} from '@angular/router';
 import {TokenService} from '../../Services/token.service';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {AuthService} from '../../Services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -24,9 +25,9 @@ export class RegisterComponent implements OnInit {
     private postify: PostifyService,
     private router: Router,
     private token: TokenService,
-    private spinner: NgxSpinnerService
-              ) {
-  }
+    private spinner: NgxSpinnerService,
+    private auth: AuthService
+  ) {}
 
   onSubmit() {
     this.spinner.show();
@@ -43,6 +44,7 @@ export class RegisterComponent implements OnInit {
 
   handleResponse(data) {
     this.token.handle(data.token);
+    this.auth.changeAuthStatus(true);
     this.router.navigateByUrl('/dashboard');
   }
 
