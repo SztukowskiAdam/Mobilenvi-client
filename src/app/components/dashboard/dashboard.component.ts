@@ -12,7 +12,7 @@ import {NgxSpinnerService} from 'ngx-spinner';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class DashboardComponent implements OnInit {
-  public dataa = {};
+  public userData = {};
   public weather = {
     id: null,
     station_id: null,
@@ -45,14 +45,14 @@ export class DashboardComponent implements OnInit {
   }
 
   getWeather(position) {
-    this.dataa = {
+    this.userData = {
       x: position.coords.latitude,
       y: position.coords.longitude
     };
     this.spinner.show();
-    return this.postify.weather(this.dataa).subscribe(
+    return this.postify.weather(this.userData).subscribe(
       data => {
-        this.weather = data.body.data;
+        this.weather = data.body.data[0];
         this.spinner.hide();
         },
       error => {

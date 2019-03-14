@@ -27,4 +27,12 @@ export class PostifyService {
 
     return this.http.post(environment.APIEndpoint + 'user/weather', data, {headers: httpHeaders, observe: 'response'});
   }
+
+  data(): Observable<any> {
+    const httpHeaders = new HttpHeaders({
+      'Authorization': 'Bearer ' + this.token.get()
+    });
+
+    return this.http.get(environment.APIEndpoint + 'data', {headers: httpHeaders, observe: 'response'});
+  }
 }

@@ -14,6 +14,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {AuthService} from './Services/auth.service';
 import { HomeComponent } from './components/home/home.component';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import { WeatherMapComponent } from './components/weather-map/weather-map.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    WeatherMapComponent
   ],
   imports: [
     BrowserModule,
